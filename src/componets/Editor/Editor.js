@@ -1,0 +1,83 @@
+import React from 'react';
+import { useState } from 'react';
+
+import './Editor.css';
+
+export default function Editor({
+  name,
+  setName,
+  head,
+  setHead,
+  body,
+  setBody,
+  legs,
+  setLegs,
+  headCount,
+  setHeadCount,
+  bodyCount,
+  setBodyCount,
+  legsCount,
+  setLegsCount,
+  setCatchphrase,
+}) {
+  const [inputValue, setInputValue] = useState('');
+  const handleClick = () => {
+    if (inputValue === '') {
+      return alert('Please enter a catchphrase');
+    } else {
+      setCatchphrase((currentPhrase) => [...currentPhrase, inputValue]);
+      setInputValue('');
+    }
+  };
+  const handleChange = (e) => {
+    e.target.name === 'title' && setName(e.target.value);
+    e.target.name === 'head' && setHead(e.target.value, setHeadCount(headCount + 1));
+    e.target.name === 'body' && setBody(e.target.value, setBodyCount(bodyCount + 1));
+    e.target.name === 'legs' && setLegs(e.target.value, setLegsCount(legsCount + 1));
+  };
+  return (
+    <div>
+      <div className="editor">
+        <div className="form-control">
+          <input name="title" type="text" value={name} onChange={handleChange} />
+          <label htmlFor="title">Title</label>
+        </div>
+      </div>
+      <div className="editor">
+        <div className="form-control">
+          <select name="head" type="text" value={head} onChange={handleChange}>
+            <option value="bird">Bird</option>
+            <option value="dog">Dog</option>
+            <option value="horse">Horse</option>
+          </select>
+        </div>
+      </div>
+      <div className="editor">
+        <div className="form-control">
+          <select name="body" type="text" value={body} onChange={handleChange}>
+            <option value="bshirt">Blue shirt</option>
+            <option value="rshirt">Red shirt</option>
+            <option value="pshirt">Pink shirt</option>
+            <option value="dress">dress</option>
+          </select>
+        </div>
+      </div>
+      <div className="editor">
+        <div className="form-control">
+          <select name="legs" type="text" value={legs} onChange={handleChange}>
+            <option value="bpants">Blue pants</option>
+            <option value="dogpants">Dog pants</option>
+            <option value="wpants">White pants</option>
+            <option value="leg">leg</option>
+          </select>
+        </div>
+      </div>
+      <p>Head has changed {headCount} times </p>
+      <p>Body has changed {bodyCount} times </p>
+      <p>Body has changed {legsCount} times </p>
+
+      <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+      <button onClick={handleClick}>Add</button>
+    </div>
+  );
+}
