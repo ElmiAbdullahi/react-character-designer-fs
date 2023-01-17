@@ -13,11 +13,13 @@ export default function Editor({
   setLegs,
   headCount,
   setHeadCount,
+  bodyCount,
+  setBodyCount,
 }) {
   const handleChange = (e) => {
     e.target.name === 'title' && setName(e.target.value);
     e.target.name === 'head' && setHead(e.target.value, setHeadCount(headCount + 1));
-    e.target.name === 'body' && setBody(e.target.value);
+    e.target.name === 'body' && setBody(e.target.value, setBodyCount(bodyCount + 1));
     e.target.name === 'legs' && setLegs(e.target.value);
   };
   return (
@@ -57,7 +59,8 @@ export default function Editor({
           </select>
         </div>
       </div>
-      <p> {headCount} </p>
+      <p>Head has changed {headCount} times </p>
+      <p>Body has changed {bodyCount} times </p>
     </div>
   );
 }

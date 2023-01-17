@@ -11,6 +11,7 @@ export default function Home() {
   const [body, setBody] = useState('bshirt');
   const [legs, setLegs] = useState('wpants');
   const [headCount, setHeadCount] = useState(0);
+  const [bodyCount, setBodyCount] = useState(0);
 
   return (
     <main className="main">
@@ -25,8 +26,17 @@ export default function Home() {
         setLegs={setLegs}
         headCount={headCount}
         setHeadCount={setHeadCount}
+        bodyCount={bodyCount}
+        setBodyCount={setBodyCount}
       />
-      <Preview name={name} head={head} body={body} legs={legs} headCount={headCount} />
+      <Preview
+        name={name}
+        head={head}
+        body={body}
+        legs={legs}
+        headCount={headCount}
+        bodyCount={bodyCount}
+      />
     </main>
   );
 }
