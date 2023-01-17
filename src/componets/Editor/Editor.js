@@ -2,10 +2,11 @@ import React from 'react';
 
 import './Editor.css';
 
-export default function Editor({ name, setName, head, setHead }) {
+export default function Editor({ name, setName, head, setHead, body, setBody }) {
   const handleChange = (e) => {
     e.target.name === 'title' && setName(e.target.value);
     e.target.name === 'head' && setHead(e.target.value);
+    e.target.name === 'body' && setBody(e.target.value);
   };
   return (
     <div>
@@ -21,6 +22,16 @@ export default function Editor({ name, setName, head, setHead }) {
             <option value="bird">Bird</option>
             <option value="dog">Dog</option>
             <option value="horse">Horse</option>
+          </select>
+        </div>
+      </div>
+      <div className="editor">
+        <div className="form-control">
+          <select name="body" type="text" value={body} onChange={handleChange}>
+            <option value="bshirt">Blue shirt</option>
+            <option value="rshirt">Red shirt</option>
+            <option value="pshirt">Pink shirt</option>
+            <option value="dress">dress</option>
           </select>
         </div>
       </div>
