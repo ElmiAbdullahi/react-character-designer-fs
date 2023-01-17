@@ -12,6 +12,7 @@ export default function Home() {
   const [legs, setLegs] = useState('wpants');
   const [headCount, setHeadCount] = useState(0);
   const [bodyCount, setBodyCount] = useState(0);
+  const [legsCount, setLegsCount] = useState(0);
 
   return (
     <main className="main">
@@ -28,6 +29,8 @@ export default function Home() {
         setHeadCount={setHeadCount}
         bodyCount={bodyCount}
         setBodyCount={setBodyCount}
+        legsCount={legsCount}
+        setLegsCount={setLegsCount}
       />
       <Preview
         name={name}
@@ -36,6 +39,7 @@ export default function Home() {
         legs={legs}
         headCount={headCount}
         bodyCount={bodyCount}
+        legsCount={legsCount}
       />
     </main>
   );
