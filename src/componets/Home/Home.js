@@ -13,6 +13,7 @@ export default function Home() {
   const [headCount, setHeadCount] = useState(0);
   const [bodyCount, setBodyCount] = useState(0);
   const [legsCount, setLegsCount] = useState(0);
+  const [catchphrase, setCatchphrase] = useState([]); // [state, setState
 
   return (
     <main className="main">
@@ -31,6 +32,7 @@ export default function Home() {
         setBodyCount={setBodyCount}
         legsCount={legsCount}
         setLegsCount={setLegsCount}
+        setCatchphrase={setCatchphrase}
       />
       <Preview
         name={name}
@@ -40,6 +42,7 @@ export default function Home() {
         headCount={headCount}
         bodyCount={bodyCount}
         legsCount={legsCount}
+        catchphrase={catchphrase}
       />
     </main>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 import './Editor.css';
 
@@ -17,7 +18,17 @@ export default function Editor({
   setBodyCount,
   legsCount,
   setLegsCount,
+  setCatchphrase,
 }) {
+  const [inputValue, setInputValue] = useState('');
+  const handleClick = () => {
+    if (inputValue === '') {
+      return alert('Please enter a catchphrase');
+    } else {
+      setCatchphrase((currentPhrase) => [...currentPhrase, inputValue]);
+      setInputValue('');
+    }
+  };
   const handleChange = (e) => {
     e.target.name === 'title' && setName(e.target.value);
     e.target.name === 'head' && setHead(e.target.value, setHeadCount(headCount + 1));
@@ -64,6 +75,9 @@ export default function Editor({
       <p>Head has changed {headCount} times </p>
       <p>Body has changed {bodyCount} times </p>
       <p>Body has changed {legsCount} times </p>
+
+      <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+      <button onClick={handleClick}>Add</button>
     </div>
   );
 }
