@@ -7,11 +7,12 @@ import './Home.css';
 
 export default function Home() {
   const [name, setName] = useState('');
+  const [head, setHead] = useState('bird');
 
   return (
     <main className="main">
-      <Editor name={name} setName={setName} />
-      <Preview name={name} />
+      <Editor name={name} setName={setName} head={head} setHead={setHead} />
+      <Preview name={name} head={head} />
     </main>
   );
 }
