@@ -2,10 +2,21 @@ import React from 'react';
 
 import './Editor.css';
 
-export default function Editor({ name, setName, head, setHead, body, setBody, legs, setLegs }) {
+export default function Editor({
+  name,
+  setName,
+  head,
+  setHead,
+  body,
+  setBody,
+  legs,
+  setLegs,
+  headCount,
+  setHeadCount,
+}) {
   const handleChange = (e) => {
     e.target.name === 'title' && setName(e.target.value);
-    e.target.name === 'head' && setHead(e.target.value);
+    e.target.name === 'head' && setHead(e.target.value, setHeadCount(headCount + 1));
     e.target.name === 'body' && setBody(e.target.value);
     e.target.name === 'legs' && setLegs(e.target.value);
   };
@@ -46,6 +57,7 @@ export default function Editor({ name, setName, head, setHead, body, setBody, le
           </select>
         </div>
       </div>
+      <p> {headCount} </p>
     </div>
   );
 }

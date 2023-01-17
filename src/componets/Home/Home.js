@@ -10,6 +10,7 @@ export default function Home() {
   const [head, setHead] = useState('bird');
   const [body, setBody] = useState('bshirt');
   const [legs, setLegs] = useState('wpants');
+  const [headCount, setHeadCount] = useState(0);
 
   return (
     <main className="main">
@@ -22,8 +23,10 @@ export default function Home() {
         setBody={setBody}
         legs={legs}
         setLegs={setLegs}
+        headCount={headCount}
+        setHeadCount={setHeadCount}
       />
-      <Preview name={name} head={head} body={body} legs={legs} />
+      <Preview name={name} head={head} body={body} legs={legs} headCount={headCount} />
     </main>
   );
 }
